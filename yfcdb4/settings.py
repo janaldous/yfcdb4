@@ -123,3 +123,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#TEMPORARY, WHILE THERE ARE NO STATIC FILES YET
+DISABLE_COLLECTSTATIC=1
