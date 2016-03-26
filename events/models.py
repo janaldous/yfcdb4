@@ -12,10 +12,15 @@ ROLE = (
 
 class Event(models.Model):
     #names
-    date = models.DateField(auto_now=True)
+    date = models.DateField()
     name = models.CharField(max_length=100)
     type = models.CharField(max_length=2, choices=EVENT_TYPE)
     venue = models.CharField(max_length=50)
+    attendees = models.ManyToManyField(
+        Member,
+        through='Attend',
+        through_fields=('event', 'member'),
+    )
 
     def __str__(self):
         return ("%s: %s at %s" % (self.date, self.name, self.venue))
