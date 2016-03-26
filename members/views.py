@@ -9,4 +9,4 @@ def index(request):
         'members': members,
     }
 
-    return render(request, 'members/members_list.html', context)
+    return render(request, 'members/member_index.html', context)

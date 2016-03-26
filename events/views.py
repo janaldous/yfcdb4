@@ -9,4 +9,13 @@ def index(request):
         'events': events,
     }
 
-    return render(request, 'events/events_list.html', context)
+    return render(request, 'events/event_index.html', context)
+
+def event_detail(request, id):
+    event = Event.objects.get(pk=id)
+
+    context = {
+        'event': event,
+    }
+
+    return render(request, 'events/event_detail.html', context)

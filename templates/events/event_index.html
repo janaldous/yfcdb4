@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="list-group">
+        {% for event in events %}
+        <a href="{% url 'events:event_detail' event.id %}" class="list-group-item">
+            <span class="badge">{{ event.attendees|length }}</span>
+            {{ event.name }}
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
