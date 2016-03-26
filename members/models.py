@@ -1,5 +1,14 @@
 from django.db import models
 
+BLOOD_TYPE = (
+    ('B+', 'B+'),
+)
+
+GENDER = (
+    ('m', 'Male'),
+    ('f', 'Female'),
+)
+
 class Member(models.Model):
     #names
     family_name = models.CharField(max_length=100)
@@ -14,6 +23,13 @@ class Member(models.Model):
     birthday = models.DateField(blank=True)
     #kfc to yfc
     kfc_to_yfc = models.BooleanField(default=False)
+    school = models.CharField(max_length=100)
+    school_level = models.CharField(max_length=10)
+    course = models.CharField(max_length=100, blank=True)
+    blood_type = models.CharField(max_length=2, choices=BLOOD_TYPE,blank=True)
+    gender = models.CharField(max_length=1, choices=GENDER)
+    cell_number = models.CharField(max_length=11)
+    email = models.EmailField(max_length=50)
 
 
     def __str__(self):
