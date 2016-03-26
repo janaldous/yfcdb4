@@ -47,6 +47,5 @@ class Member(models.Model):
         help_text="Illnesses that require special attention",
     )
 
-
     def __str__(self):
         return ("%s, %s '%s' %s" % (self.family_name, self.given_name, self.nickname, self.middle_name))
