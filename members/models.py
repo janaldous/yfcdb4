@@ -21,7 +21,7 @@ class Member(models.Model):
     address_city = models.CharField(max_length=200)
     #birthday
     birthday = models.DateField(blank=True)
-    #kfc to yfc
+    #other
     kfc_to_yfc = models.BooleanField(default=False)
     school = models.CharField(max_length=100)
     school_level = models.CharField(max_length=10)
@@ -30,6 +30,13 @@ class Member(models.Model):
     gender = models.CharField(max_length=1, choices=GENDER)
     cell_number = models.CharField(max_length=11)
     email = models.EmailField(max_length=50)
+    #parents
+    name_of_father = models.CharField(max_length=100)
+    fathers_occupation = models.CharField("Father's occupation", max_length=100, blank=True)
+    fathers_contact_details = models.CharField("Father's cell #", max_length=100, blank=True)
+    name_of_mother = models.CharField(max_length=100)
+    mothers_occupation = models.CharField("Mother's occupation", max_length=100, blank=True)
+    mothers_contact_details = models.CharField("Mother's cell #", max_length=100, blank=True)
 
 
     def __str__(self):
