@@ -13,9 +13,11 @@ def index(request):
 
 def event_detail(request, id):
     event = Event.objects.get(pk=id)
+    attendees = event.attendees.all()
 
     context = {
         'event': event,
+        'attendees': attendees,
     }
 
     return render(request, 'events/event_detail.html', context)
