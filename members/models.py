@@ -37,6 +37,15 @@ class Member(models.Model):
     name_of_mother = models.CharField(max_length=100)
     mothers_occupation = models.CharField("Mother's occupation", max_length=100, blank=True)
     mothers_contact_details = models.CharField("Mother's cell #", max_length=100, blank=True)
+    #other
+    special_skills = models.CharField(
+        max_length=100, blank=True,
+        help_text="(eg playing musical instruments, dancing, singing, etc)",
+    )
+    illness = models.CharField(
+        max_length=100, blank=True,
+        help_text="Illnesses that require special attention",
+    )
 
 
     def __str__(self):
