@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'members.apps.MembersConfig',
     'events.apps.EventsConfig',
+    'bootstrapform', #to make forms into bootstrap, https://github.com/tzangms/django-bootstrap-form
 ]
 
 MIDDLEWARE_CLASSES = [
