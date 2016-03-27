@@ -3,7 +3,8 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic
 
 from events.forms import EventForm
-from .models import Event, Attend
+from members.models import Member
+from .models import Event, Attend, ROLE
 
 
 def index(request):
@@ -32,6 +33,8 @@ def event_detail(request, id):
 
 
 def event_update(request):
+    members = Member.objects.all()
+
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -52,4 +55,10 @@ def event_update(request):
     else:
         form = EventForm()
 
-    return render(request, 'events/event_update.html', {'form': form})
+    context = {
+        'form': form,
+        'members': members,
+        'roles': ROLE,
+    }
+
+    return render(request, 'events/event_update.html', context)

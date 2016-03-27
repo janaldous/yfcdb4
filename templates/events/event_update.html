@@ -3,15 +3,42 @@
 
 {% block content %}
 <div class="container">
-    <form class="form-horizontal" method="post">
-        <legend>Event</legend>
-        {% csrf_token %}
-        {{ form|bootstrap_horizontal }}
-        <div class="form-group">
-            <div class="col-sm-10 col-sm-offset-2">
-                <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="col-md-6 col-sm-6">
+        <form class="form-horizontal" method="post">
+            <legend>Event</legend>
+            {% csrf_token %}
+            {{ form|bootstrap_horizontal }}
+            <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
+    <div class="col-md-6 col-sm-6">
+        <legend>Attendees</legend>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Role</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for member in members %}
+                <tr>
+                    <td>{{ member.nickname }} {{ member.family_name }}</td>
+                    <td>
+                        <select class="form-control">
+                            {% for role in roles %}
+                            <option>{{ role }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
 {% endblock %}

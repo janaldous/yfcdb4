@@ -3,12 +3,28 @@ from members.models import Member
 from django.core.urlresolvers import reverse
 
 EVENT_TYPE = (
+    ("CA", "Chapter Assembly"),
     ("PF", "Pastoral Formation"),
+    ("YC", "Youth Camp"),
+    ("HH", "Household"),
+    ("Cf", "Conference"),
+    ("Ka", "Kassanga"),
+    ("SM", "Service Meeting"),
 )
 
 ROLE = (
     ('P', 'Present'),
-    ('Spk', 'Speaker')
+    ('Spk', 'Speaker'),
+    ('Shr', 'Sharer'),
+    ('Hhl', 'Household Leader'),
+    ('ST', 'Service Team'),
+    ('TL', 'Team Leader'),
+    ('ATL', 'Assistant Team Leader'),
+    ('HS', 'Head Servant'),
+    ('AHS', 'Assistant Head Servant'),
+    ('PW', 'Prayer Warrior'),
+    ('FC', 'Food Committee'),
+    ('MM', 'Music Ministry'),
 )
 
 class Event(models.Model):
