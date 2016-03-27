@@ -1,5 +1,6 @@
 from django.db import models
 from members.models import Member
+from django.core.urlresolvers import reverse
 
 EVENT_TYPE = (
     ("PF", "Pastoral Formation"),
@@ -24,6 +25,9 @@ class Event(models.Model):
 
     def __str__(self):
         return ("%s: %s at %s" % (self.date, self.name, self.venue))
+
+    def get_absolute_url(self):
+        return reverse('events:event_index')
 
 class Attend(models.Model):
     #names

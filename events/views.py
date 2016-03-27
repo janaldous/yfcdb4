@@ -38,10 +38,15 @@ def event_update(request):
         form = EventForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
-            subject = form.cleaned_data['subject']
+            date = form.cleaned_data['date']
+            type = form.cleaned_data['type']
+            name = form.cleaned_data['name']
+            venue = form.cleaned_data['venue']
+            new_event = Event(date=date, type=type, name=name, venue=venue)
+            new_event.save()
             # ...
             # redirect to a new URL:
-            return HttpResponseRedirect('/thanks/')
+            return HttpResponseRedirect(new_event.get_absolute_url())
 
     # if a GET (or any other method) we'll create a blank form
     else:

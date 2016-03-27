@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="container">
-    <form class="form-horizontal">
+    <form class="form-horizontal" method="post">
         <legend>Event</legend>
         {% csrf_token %}
         {{ form|bootstrap_horizontal }}
