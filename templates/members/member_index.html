@@ -7,7 +7,7 @@
     </div>
     <div class="list-group">
         {% for member in members %}
-        <a href="#" class="list-group-item">{{ member.nickname }} {{ member.family_name }}</a>
+        <a href="{% url 'members:member_detail' member.id %}" class="list-group-item">{{ member.nickname }} {{ member.family_name }}</a>
         {% endfor %}
     </div>
 </div>
